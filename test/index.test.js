@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
 import { getRestaurants, createRestaurantCard } from '../FastEat/index.js'
-import { restaurantCard, fosterCard } from './restaurants.fixture.js';
+import { restaurantCard, fosterCard, restaurant } from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -54,10 +54,10 @@ describe("When called rejected", () => {
 
 describe('createRestaurantCard', () => {
     test('creates a card for each restaurant', () => {
-        document.body.innerHTML = restaurantCard;
-        let expected = createRestaurantCard().innerHTML;
-        const card = document.querySelector('.restaurants_list');
-        expect(expected).toEqual(card.innerHTML)
+        
+        document.body.innerHTML = fosterCard;
+        const card = document.querySelector('.restaurant_card');
+        expect(createRestaurantCard(restaurant).innerHTML).toEqual(card.innerHTML)
     })
 })
 

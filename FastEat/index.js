@@ -4,44 +4,54 @@ let errorMsg;
 
 async function getRestaurants() {
 
-        const res = await fetch('./json.json');
-        if(res){
+        
+        try{
+            const res = await fetch('./json.json');
             const data = await res.json();
             restaurants = data;
+            
             console.log("data", restaurants);
-            return restaurants;
-        }else{
-            alert("hola")
+            
         }
+        catch(error){
+            console.log("error")
+        }
+        printRestaurantCard(restaurants);
 }
 getRestaurants();
 
 
 
-function createRestaurantCard () {
-
-    const list = document.querySelector('.restaurants_list');
+function createRestaurantCard (restaurant) {
+console.log("REST",restaurant);
+    const list = document.querySelector('.restaurant_list');
     if(list){
-        const li = document.createElement('li')
-    const name = document.createElement('h2')
-    const img = document.createElement('img')
-    const typeOfFood = document.createElement('p')
-    li.class = 'restaurant_card';
-    name.class = 'restaurant_name';
-    img.class = 'restaurant_img';
-    typeOfFood.class = 'restaurant_kindOfFood';
+    const li = document.createElement('li');
+    const name = document.createElement('h2');
+    name.textContent = restaurant.restaurantName;
+    const img = document.createElement('img');
+    img.src = restaurant.restaurantImg;
+    const typeOfFood = document.createElement('p');
+    typeOfFood.textContent = restaurant.kindOfFood;
+    li.setAttribute("class","restaurant_card");
+    name.setAttribute("class","restaurant_name");
+    img.setAttribute("class","restaurant_img");
+    typeOfFood.setAttribute("class","restaurant_kindOfFood")
     li.appendChild(name);
     li.appendChild(img);
     li.appendChild(typeOfFood)
     list.appendChild(li);
 
-    return list;
+    return li;
     }
 
 }
 
 function printRestaurantCard (restaurants) {
-    console.log('restaurants',restaurants)
+    restaurants.forEach((restaurant)=> {
+        console.log("RESTAURANTS",restaurant)
+        createRestaurantCard(restaurant);
+    })
 }
 
 export { getRestaurants, createRestaurantCard };
