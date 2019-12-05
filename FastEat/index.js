@@ -4,15 +4,15 @@ let errorMsg;
 
 async function getRestaurants() {
 
-    try{
-        const res = await fetch('./json.js');
-        const data = await res.text();
-        restaurants = data;
-         console.log("data",restaurants);
-    }catch(error){
-     errorMsg="error";
-    console.log("errorMSG", errorMsg)        
-    }    
+        const res = await fetch('./json.json');
+        if(res){
+            const data = await res.json();
+            restaurants = data;
+            console.log("data", restaurants);
+            return restaurants;
+        }else{
+            alert("hola")
+        }
 }
 getRestaurants();
 
@@ -37,7 +37,11 @@ function createRestaurantCard () {
 
     return list;
     }
-    
 
 }
+
+function printRestaurantCard (restaurants) {
+    console.log('restaurants',restaurants)
+}
+
 export { getRestaurants, createRestaurantCard };

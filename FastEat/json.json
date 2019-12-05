@@ -1,4 +1,4 @@
-export const restaurants = [{
+[{
     "restaurantName" : "Foster Hollywood",
     "restaurantImg" : "https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg",
     "kindOfFood" : "Americana",
@@ -31,7 +31,7 @@ export const restaurants = [{
             "ingredients" : "Leche, queso, azúcar, galletas, arándanos",
             "price" : 6
         }
-    },
+    }
 },
 {
     "restaurantName" : "Ni Hao Arturo Soria",
@@ -66,7 +66,7 @@ export const restaurants = [{
             "ingredients" : "Helado, huevo, harina, pan, leche, canela",
             "price" : 5
         }
-    },
+    }
 },
 {
     "restaurantName": "Tagliatella",

@@ -1,1 +1,3 @@
 export const restaurantCard = `<ul class="restaurants_list"><li class="restaurant_card"><h2 class="restaurant_name"></h2><img class="restaurant_img" src="" alt=""><p class="restaurant_kindOfFood"></p></li></ul>`
+
+export const fosterCard = `<li class="restaurant_card"><h2 class="restaurant_name">Foster Hollywoon</h2><img class="restaurant_img" src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" alt=""><p class="restaurant_kindOfFood">Americana</p></li>`
