@@ -70,7 +70,7 @@
 },
 {
     "restaurantName": "Tagliatella",
-    "restaurantImg": "https://www.celiacosmadrid.org/media/images/ae15f7b3-f82c-4dd8-a121-e91209d2cc72.width-768.jpg(45 kB)",
+    "restaurantImg": "https://res.cloudinary.com/deunyl3k1/image/upload/s--7PS8BmuN--/c_fill,f_auto,h_650,q_auto,w_800/v1/gpla/mall_common/0001/18/3e618bce27e61660bba5a7939f1e7c390b4198e0.jpeg",
     "kindOfFood": "Italiana",
     "dishes": {
         "appetizer": {
