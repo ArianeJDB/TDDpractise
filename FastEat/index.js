@@ -10,6 +10,7 @@ async function getRestaurants() {
         console.log("error")
     }
     printRestaurantCard(restaurants);
+    printFoodCard(restaurants)
 }
 getRestaurants();
 
@@ -48,6 +49,7 @@ function createRestaurantCard(restaurant) {
 }
 
 function createFoodCard(food){
+    console.log('kjhdhkd', food)
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
     const li = document.createElement('li');
@@ -90,6 +92,14 @@ function createFoodCard(food){
 function printRestaurantCard(restaurants) {
     restaurants.forEach((restaurant) => {
         createRestaurantCard(restaurant);
+    })
+}
+
+function printFoodCard(food){
+    
+    food.forEach((dish) => {
+        console.log(dish.dishes)
+        createFoodCard(dish.dishes);
     })
 }
 
