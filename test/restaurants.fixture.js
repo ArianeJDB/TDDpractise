@@ -168,3 +168,5 @@ export const mainHTML = `<main>
 </main>`
 
 export const selectedLi = `<img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img">`
+
+export const foodCard = `<ul class="food_list"><li class="food_card"><img src="https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg" class="food_img"><h5 class="food_name">Alitas</h5><p class="food_description">Alitas de pollo con salsa barbacoa</p><p class="food_ingredients">Pollo, Salsa Barbacoa</p><span class="food_price">8</span><button class="add_cart"></button></li></ul>`

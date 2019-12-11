@@ -45,9 +45,47 @@ function createRestaurantCard(restaurant) {
         return li;
 
     }
-
-
 }
+
+function createFoodCard(food){
+    const list = document.createElement('ul');
+    list.setAttribute('class', 'food_list');
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+    img.src = food.img;
+    const name = document.createElement('h5');
+    name.textContent = food.name;
+    const description = document.createElement('p');
+    description.textContent = food.description;
+    const ingredients = document.createElement('p');
+    ingredients.textContent = food.ingredients;
+    const price = document.createElement('span')
+    price.textContent = food.price;
+    const button = document.createElement('button');
+
+    li.setAttribute("class", "food_card");
+    name.setAttribute("class", "food_name");
+    img.setAttribute("class", "food_img");
+    description.setAttribute("class", "food_description");
+    ingredients.setAttribute("class", "food_ingredients");
+    price.setAttribute('class', 'food_price');
+    button.setAttribute('class', 'add_cart')
+        li.appendChild(img);
+        li.appendChild(name);
+        li.appendChild(description);
+        li.appendChild(ingredients);
+        li.appendChild(price);
+        li.appendChild(button);
+        list.appendChild(li);
+
+        // li.addEventListener('click',()=>{
+        //     hideRestaurants(main);
+        // } )
+        // li.addEventListener('click', catchRestaurant)
+
+        return li;
+
+    }
 
 function printRestaurantCard(restaurants) {
     restaurants.forEach((restaurant) => {
@@ -58,6 +96,7 @@ function printRestaurantCard(restaurants) {
 function catchRestaurant(event){
     if(event){
         return event.currentTarget;
+        createFoodCard();
     } 
 }
 
@@ -65,6 +104,7 @@ function hideRestaurants(main) {
         if(main){   
             main.innerHTML = "";
         }
+        
         
     }
 
@@ -76,5 +116,6 @@ export {
     createRestaurantCard,
     printRestaurantCard,
     hideRestaurants,
-    catchRestaurant
+    catchRestaurant,
+    createFoodCard
 };
