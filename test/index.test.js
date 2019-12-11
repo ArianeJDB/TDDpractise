@@ -1,12 +1,10 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant } from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants } from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
-    //beforeAll solo limpia la function getfilms();
     beforeAll((done) => {
-        //jest.fn es el spy
         mockGetRestaurants = jest.fn(() => {
             return Promise.resolve(restaurants);
         })
@@ -61,13 +59,19 @@ describe('createRestaurantCard', () => {
     })
 })
 
-// describe('printRestaurantCard', () => {
-//     test('should print each restaurant with data in a card', () => {
-//         document.body.innerHTML = fosterCard;
-//         let expected = printRestaurantCard().innerHTML;
-//         const card = document.querySelector('.restaurants_card');
-//         expect(expected).toEqual(card.innerHTML)
+
+describe('printRestaurantCard', () => {
+    test('should print each restaurant with data in a card', () => {
+        const printRestaurantCard = jest.fn();
+        const createRestaurantCard = jest.fn();
+
+        createRestaurantCard.mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+        allRestaurants.forEach(restaurant => createRestaurantCard(restaurant));
+        printRestaurantCard(allRestaurants);
+    
+        expect(createRestaurantCard).toHaveBeenCalledTimes(3)
 
 
-//     }
-// )})
+    }
+)})

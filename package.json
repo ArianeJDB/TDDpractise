@@ -10,6 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "jest",
+    "testwatch": "jest --watchAll",
+    "test:cobertura": "jest --coverage",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "repository": {

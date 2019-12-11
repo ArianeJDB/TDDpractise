@@ -45,12 +45,12 @@ function createRestaurantCard(restaurant) {
 
 function printRestaurantCard(restaurants) {
     restaurants.forEach((restaurant) => {
-        console.log("RESTAURANTS", restaurant)
         createRestaurantCard(restaurant);
     })
 }
 
 export {
     getRestaurants,
-    createRestaurantCard
+    createRestaurantCard,
+    printRestaurantCard
 };
