@@ -65,3 +65,15 @@ select{
 .hidden{
     display: none;
 }
+
+.food_card {
+    border: solid 2px black;
+    display: flex;
+    height: 100px;
+}
+.food_img{
+    width: 200px;
+}
+.add_cart {
+    height: 20px;
+}

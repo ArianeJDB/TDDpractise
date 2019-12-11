@@ -49,7 +49,9 @@ function createRestaurantCard(restaurant) {
 }
 
 function createFoodCard(food){
-    console.log('kjhdhkd', food)
+    if(main){
+
+    
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
     const li = document.createElement('li');
@@ -79,6 +81,7 @@ function createFoodCard(food){
         li.appendChild(price);
         li.appendChild(button);
         list.appendChild(li);
+        main.appendChild(list)
 
         // li.addEventListener('click',()=>{
         //     hideRestaurants(main);
@@ -86,8 +89,10 @@ function createFoodCard(food){
         // li.addEventListener('click', catchRestaurant)
 
         return li;
-
     }
+    }
+    
+    
 
 function printRestaurantCard(restaurants) {
     restaurants.forEach((restaurant) => {
@@ -98,8 +103,10 @@ function printRestaurantCard(restaurants) {
 function printFoodCard(food){
     
     food.forEach((dish) => {
-        console.log(dish.dishes)
-        createFoodCard(dish.dishes);
+        dish.dishes.forEach(item => {
+        createFoodCard(item);
+        })
+        
     })
 }
 
