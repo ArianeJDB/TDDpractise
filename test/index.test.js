@@ -68,7 +68,7 @@ describe('printRestaurantCard', () => {
         createRestaurantCard.mockReturnValueOnce(true).mockReturnValueOnce(false);
 
         allRestaurants.forEach(restaurant => createRestaurantCard(restaurant));
-        printRestaurantCard(allRestaurants);
+        printRestaurantCard(restaurants);
     
         expect(createRestaurantCard).toHaveBeenCalledTimes(3)
 
@@ -77,15 +77,28 @@ describe('printRestaurantCard', () => {
 )})
 
 describe('hideRestaurants', () => {
-    test('should add display:none class', () => {
+        
+    
+    test('when click in li hideRestaurant should be call', () => {
         document.body.innerHTML = mainHTML;
+        const hideRestaurants = jest.fn();
         const main = document.querySelector('main');
         const li = document.querySelector('li');
+        li.addEventListener('click', hideRestaurants)
        // main.setAttribute('class', 'hidden')
         //console.log(main.classList[0])
-        const event = li.click();
-        hideRestaurants(event, main);
-
-        expect(main.style.display).toBe('hidden')
+       li.click();
+        expect(hideRestaurants).toHaveBeenCalled();
+       
+    })
+    test('then should add display:none class', () => {
+        document.body.innerHTML = mainHTML;
+        const main = document.querySelector('main');
+      
+     
+      hideRestaurants(main)
+      const expected= main.innerHTML
+        expect(expected).toBe("");
+       
     })
 })

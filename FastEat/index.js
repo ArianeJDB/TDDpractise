@@ -1,7 +1,6 @@
 let restaurants = [];
 const main = document.querySelector('main');
 
-
 async function getRestaurants() {
     try {
         const res = await fetch('./json.json');
@@ -38,10 +37,12 @@ function createRestaurantCard(restaurant) {
         li.appendChild(imgRating);
         list.appendChild(li);
 
-        li.addEventListener('click', hideRestaurants)
+        li.addEventListener('click',()=>{
+            hideRestaurants(main);
+        } )
 
         return li;
-       
+
     }
 
 
@@ -53,19 +54,20 @@ function printRestaurantCard(restaurants) {
     })
 }
 
-function hideRestaurants(event, main) {
- 
-  if(event){
-     const restaurantSelected = event.currentTarget
-     console.log('click', restaurantSelected)
-     main.setAttribute('class', 'hidden')
-    //  main.style.display = 'none'; 
-  }
-    
+function hideRestaurants(main) {
+    // if (event) {
+    //     const restaurantSelected = event.currentTarget
+    //     console.log('click', restaurantSelected)
+        
+        if(main){
+            
+            main.innerHTML = "";
+        //  main.style.display = 'none'; 
+        }
+        
+    }
 
-    
-
-}
+//}
 
 // function createEventListener() {
 //     const itemRestaurant = document.querySelector('li')
@@ -83,7 +85,7 @@ function hideRestaurants(event, main) {
 
 
 
- 
+
 
 
 
