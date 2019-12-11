@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants } from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML } from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -75,3 +75,17 @@ describe('printRestaurantCard', () => {
 
     }
 )})
+
+describe('hideRestaurants', () => {
+    test('should add display:none class', () => {
+        document.body.innerHTML = mainHTML;
+        const main = document.querySelector('main');
+        const li = document.querySelector('li');
+       // main.setAttribute('class', 'hidden')
+        //console.log(main.classList[0])
+        const event = li.click();
+        hideRestaurants(event, main);
+
+        expect(main.style.display).toBe('hidden')
+    })
+})
