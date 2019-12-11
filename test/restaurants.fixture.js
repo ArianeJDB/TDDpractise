@@ -1,11 +1,11 @@
 export const restaurantCard = `<ul class="restaurants_list"><li class="restaurant_card"><h2 class="restaurant_name"></h2><img class="restaurant_img" src="" alt=""><p class="restaurant_kindOfFood"></p></li></ul>`
-
-export const fosterCard = `<ul class="restaurant_list"><li class="restaurant_card"><h2 class="restaurant_name">Foster Hollywood</h2><img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><p class="restaurant_kindOfFood">Americana</p></li></ul>`
+export const fosterCard =`<ul class="restaurant_list"><li class="restaurant_card"><img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img"></li></ul>`
 
 export const restaurant = {
     "restaurantName" : "Foster Hollywood",
     "restaurantImg" : "https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg",
     "kindOfFood" : "Americana",
+    "rating" : "src/rating_stars_5.png",
     "dishes" : {
         "appetizer" : {
             "name" : "Alitas",

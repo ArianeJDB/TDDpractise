@@ -2,6 +2,7 @@
     "restaurantName" : "Foster Hollywood",
     "restaurantImg" : "https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg",
     "kindOfFood" : "Americana",
+    "rating" : "src/rating_stars_5.png",
     "dishes" : {
         "appetizer" : {
             "name" : "Alitas",
@@ -35,8 +36,9 @@
 },
 {
     "restaurantName" : "Ni Hao Arturo Soria",
-    "restaurantImg" : "https://photo620x400.mnstatic.com/a1e6af23b2619805e4ebac8b2f235c3f/restaurante-chino-ni-hao-arturo-soria.jpg",
+    "restaurantImg" : "https://t1.salir.ltmcdn.com/es/articles/2/0/5/img_comida_china_en_santander_502_600.jpg",
     "kindOfFood" : "China",
+    "rating" : "src/rating_stars_3.png",
     "dishes" : {
         "appetizer" : {
             "name" : "Rollito de Primavera",
@@ -70,8 +72,9 @@
 },
 {
     "restaurantName": "Tagliatella",
-    "restaurantImg": "https://res.cloudinary.com/deunyl3k1/image/upload/s--7PS8BmuN--/c_fill,f_auto,h_650,q_auto,w_800/v1/gpla/mall_common/0001/18/3e618bce27e61660bba5a7939f1e7c390b4198e0.jpeg",
+    "restaurantImg": "https://i0.wp.com/gastronomiaoviedo.com/wp-content/uploads/2017/07/La-Tagliatella-comida-italiana-2.jpg?fit=1659%2C644&ssl=1",
     "kindOfFood": "Italiana",
+    "rating" : "src/rating_stars_4.png",
     "dishes": {
         "appetizer": {
             "name": "Provoloneta",
