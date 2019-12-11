@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML } from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi } from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -82,23 +82,39 @@ describe('hideRestaurants', () => {
     test('when click in li hideRestaurant should be call', () => {
         document.body.innerHTML = mainHTML;
         const hideRestaurants = jest.fn();
-        const main = document.querySelector('main');
         const li = document.querySelector('li');
         li.addEventListener('click', hideRestaurants)
-       // main.setAttribute('class', 'hidden')
-        //console.log(main.classList[0])
-       li.click();
+        li.click();
         expect(hideRestaurants).toHaveBeenCalled();
        
     })
     test('then should add display:none class', () => {
         document.body.innerHTML = mainHTML;
         const main = document.querySelector('main');
-      
      
       hideRestaurants(main)
       const expected= main.innerHTML
         expect(expected).toBe("");
        
+    })
+})
+
+describe('catchRestaurant', () => {
+    test('should catch clicked restaurant', () => {
+        document.body.innerHTML = mainHTML;
+       
+        const li = document.querySelector('li');
+        //console.log("li",li);
+        const event = li.click();
+        li.addEventListener('click', ()=>{
+            catchRestaurant(event)})
+        
+        
+        
+        catchRestaurant(event);
+        //const restaurantSelected = event.currentTarget
+        console.log('li',li)
+        expect(li.innerHTML).toEqual(selectedLi);
+        
     })
 })

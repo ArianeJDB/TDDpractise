@@ -40,6 +40,7 @@ function createRestaurantCard(restaurant) {
         li.addEventListener('click',()=>{
             hideRestaurants(main);
         } )
+        li.addEventListener('click', catchRestaurant)
 
         return li;
 
@@ -54,37 +55,18 @@ function printRestaurantCard(restaurants) {
     })
 }
 
+function catchRestaurant(event){
+    if(event){
+        return event.currentTarget;
+    } 
+}
+
 function hideRestaurants(main) {
-    // if (event) {
-    //     const restaurantSelected = event.currentTarget
-    //     console.log('click', restaurantSelected)
-        
-        if(main){
-            
+        if(main){   
             main.innerHTML = "";
-        //  main.style.display = 'none'; 
         }
         
     }
-
-//}
-
-// function createEventListener() {
-//     const itemRestaurant = document.querySelector('li')
-
-// // itemRestaurant.addEventListener('click', hideRestaurants) 
-//     if (liElement) {
-//         liElement.addEventListener('click', function() {
-//             console.log('success');
-//         });
-//     } else {
-//             console.log(Error('fail'));
-//     }
-// }
-
-
-
-
 
 
 
@@ -93,5 +75,6 @@ export {
     getRestaurants,
     createRestaurantCard,
     printRestaurantCard,
-    hideRestaurants
+    hideRestaurants,
+    catchRestaurant
 };
