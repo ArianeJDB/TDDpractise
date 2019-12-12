@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.58% </span>
+        <span class="strong">89.19% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>31/38</span>
+        <span class='fraction'>33/37</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.58% </span>
+        <span class="strong">89.19% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>31/38</span>
+        <span class='fraction'>33/37</span>
       </div>
     </div>
     <p class="quiet">
@@ -137,9 +137,13 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -178,6 +182,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,10 +200,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,7 +240,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let restaurants = [];
 const main = document.querySelector('main');
-&nbsp;
 &nbsp;
 async function getRestaurants() {
     try {
@@ -268,7 +277,9 @@ function createRestaurantCard(restaurant) {
         li.appendChild(imgRating);
         list.appendChild(li);
 &nbsp;
-        li.addEventListener('click', hideRestaurants);
+        li.addEventListener('click',<span class="fstat-no" title="function not covered" >()</span>=&gt;{
+<span class="cstat-no" title="statement not covered" >            hideRestaurants(main);</span>
+        } )
 &nbsp;
         return li;
 &nbsp;
@@ -283,16 +294,20 @@ function printRestaurantCard(restaurants) {
     })
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >hideRestaurants(</span>event) {
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    if (event) {</span>
-        const restaurantSelected = <span class="cstat-no" title="statement not covered" >event.currentTarget</span>
-<span class="cstat-no" title="statement not covered" >        console.log('click', restaurantSelected)</span>
-<span class="cstat-no" title="statement not covered" >        main.setAttribute('class', 'hidden')</span>
+function hideRestaurants(main) {
+    // if (event) {
+    //     const restaurantSelected = event.currentTarget
+    //     console.log('click', restaurantSelected)
+        
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(main){
+            
+            main.innerHTML = "";
         //  main.style.display = 'none'; 
+        }
+        
     }
 &nbsp;
-}
+//}
 &nbsp;
 // function createEventListener() {
 //     const itemRestaurant = document.querySelector('li')
@@ -325,7 +340,7 @@ export {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Dec 11 2019 13:02:54 GMT+0100 (hora estándar de Europa central)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Dec 11 2019 15:01:13 GMT+0100 (hora estándar de Europa central)
 </div>
 </div>
 <script src="../prettify.js"></script>
