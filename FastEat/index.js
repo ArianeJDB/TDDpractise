@@ -1,15 +1,27 @@
-let restaurants = [];
+let restaurants=[];
 const main = document.querySelector('main');
 
 async function getRestaurants() {
     try {
         const res = await fetch('./json.json');
         const data = await res.json();
-        restaurants = data;
+        for(let restaurant of data){
+            restaurants.push(restaurant)
+        }
+        
+       
+console.log("restaurants in getRestaurants",restaurants);
+console.log("data in getRestaurants",data);
+
+
     } catch (error) {
         console.log("error")
     }
+    
     printRestaurantCard(restaurants);
+    //printFoodCard(restaurants)
+
+
 }
 getRestaurants();
 
@@ -40,13 +52,57 @@ function createRestaurantCard(restaurant) {
         li.addEventListener('click',()=>{
             hideRestaurants(main);
         } )
+        li.addEventListener('click', catchRestaurant)
 
         return li;
 
     }
-
-
 }
+
+function createFoodCard(food){
+    if(main){
+
+    const list = document.createElement('ul');
+    list.setAttribute('class', 'food_list');
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+    img.src = food.img;
+    const name = document.createElement('h5');
+    name.textContent = food.name;
+    const description = document.createElement('p');
+    description.textContent = food.description;
+    const ingredients = document.createElement('p');
+    ingredients.textContent = food.ingredients;
+    const price = document.createElement('span')
+    price.textContent = food.price;
+    const button = document.createElement('button');
+
+    li.setAttribute("class", "food_card");
+    name.setAttribute("class", "food_name");
+    img.setAttribute("class", "food_img");
+    description.setAttribute("class", "food_description");
+    ingredients.setAttribute("class", "food_ingredients");
+    price.setAttribute('class', 'food_price');
+    button.setAttribute('class', 'add_cart')
+        li.appendChild(img);
+        li.appendChild(name);
+        li.appendChild(description);
+        li.appendChild(ingredients);
+        li.appendChild(price);
+        li.appendChild(button);
+        list.appendChild(li);
+        main.appendChild(list)
+
+        li.addEventListener('click',()=>{
+            hideRestaurants(main);
+        } )
+        li.addEventListener('click', catchRestaurant)
+
+        return li;
+    }
+    }
+    
+    
 
 function printRestaurantCard(restaurants) {
     restaurants.forEach((restaurant) => {
@@ -54,37 +110,49 @@ function printRestaurantCard(restaurants) {
     })
 }
 
-function hideRestaurants(main) {
-    // if (event) {
-    //     const restaurantSelected = event.currentTarget
-    //     console.log('click', restaurantSelected)
+// function printFoodCard(food){
+    
+//     food.forEach((dish) => {
+//         dish.dishes.forEach(food => {
+//         createFoodCard(food);
+//         })
         
-        if(main){
-            
-            main.innerHTML = "";
-        //  main.style.display = 'none'; 
-        }
-        
-    }
-
-//}
-
-// function createEventListener() {
-//     const itemRestaurant = document.querySelector('li')
-
-// // itemRestaurant.addEventListener('click', hideRestaurants) 
-//     if (liElement) {
-//         liElement.addEventListener('click', function() {
-//             console.log('success');
-//         });
-//     } else {
-//             console.log(Error('fail'));
-//     }
+//     })
 // }
 
+function catchRestaurant(event){
+    let nameRestaurant;
+     const selectedRestaurant = event.currentTarget.innerHTML;
+    if(selectedRestaurant.search("Foster Hollywood")>0){
+        nameRestaurant = "Foster Hollywood";
+    } else if(selectedRestaurant.search("Ni Hao Arturo Soria")>0) {
+        nameRestaurant = "Ni Hao Arturo Soria";
+    } else if(selectedRestaurant.search("Tagliatella")>0) {
+        nameRestaurant = "Tagliatella"
+    }
+    console.log("nameRestaurant",nameRestaurant);
+    filterByNameRestaurant(nameRestaurant);
+    //createFoodCard(food);
+    // if(event){
+    //     return selectedRestaurant;
+    // } 
+}
+
+function filterByNameRestaurant(nameRestaurant) {
+    console.log("nameRestaurant in filter",nameRestaurant);
+    console.log("restaurants",restaurants);
+    
+    
+}
 
 
-
+function hideRestaurants(main) {
+        if(main){   
+            main.innerHTML = "";
+        }
+        
+        //createFoodCard(food);
+    }
 
 
 
@@ -93,5 +161,7 @@ export {
     getRestaurants,
     createRestaurantCard,
     printRestaurantCard,
-    hideRestaurants
+    hideRestaurants,
+    catchRestaurant,
+    createFoodCard
 };
