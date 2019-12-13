@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes} from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterRestaurant,nameRestaurant} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -145,16 +145,24 @@ describe('catchRestaurant', () => {
         
     })
 })
-
-describe('createFoodCard', () => {
-
-    test('creates a card for each food of a rest', () => {
+describe("filterByNameRestaurant", () => {
+    test("should filter with the restaurant name",()=>{
         
-        document.body.innerHTML = foodCard;
-        const card = document.querySelector('.food_card');
-        const food = restaurant.dishes.appetizer
-        console.log('-------->', food)
-        expect(createFoodCard(food).innerHTML).toBe(card.innerHTML)
-    })
+        
+    const expected =filterByNameRestaurant(nameRestaurant,allRestaurants);
+    expect(expected).toEqual(fosterRestaurant)
 
+    })
 })
+// describe('createFoodCard', () => {
+
+//     test('creates a card for each food of a rest', () => {
+        
+//         document.body.innerHTML = foodCard;
+//         const card = document.querySelector('.food_card');
+//         const food = restaurant.dishes.appetizer
+//         console.log('-------->', food)
+//         expect(createFoodCard(food).innerHTML).toBe(card.innerHTML)
+//     })
+
+// })

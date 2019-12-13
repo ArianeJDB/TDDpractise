@@ -1,3 +1,4 @@
+
 let restaurants=[];
 const main = document.querySelector('main');
 
@@ -121,27 +122,31 @@ function printRestaurantCard(restaurants) {
 // }
 
 function catchRestaurant(event){
-    let nameRestaurant;
-     const selectedRestaurant = event.currentTarget.innerHTML;
-    if(selectedRestaurant.search("Foster Hollywood")>0){
-        nameRestaurant = "Foster Hollywood";
-    } else if(selectedRestaurant.search("Ni Hao Arturo Soria")>0) {
-        nameRestaurant = "Ni Hao Arturo Soria";
-    } else if(selectedRestaurant.search("Tagliatella")>0) {
-        nameRestaurant = "Tagliatella"
+    if(event){
+        let nameRestaurant;
+        const selectedRestaurant = event.currentTarget.innerHTML;
+       if(selectedRestaurant.search("Foster Hollywood")>0){
+           nameRestaurant = "Foster Hollywood";
+       } else if(selectedRestaurant.search("Ni Hao Arturo Soria")>0) {
+           nameRestaurant = "Ni Hao Arturo Soria";
+       } else if(selectedRestaurant.search("Tagliatella")>0) {
+           nameRestaurant = "Tagliatella"
+       }
+       console.log("nameRestaurant",nameRestaurant);
+       filterByNameRestaurant(nameRestaurant,restaurants);
     }
-    console.log("nameRestaurant",nameRestaurant);
-    filterByNameRestaurant(nameRestaurant);
+    
     //createFoodCard(food);
-    // if(event){
-    //     return selectedRestaurant;
-    // } 
 }
 
-function filterByNameRestaurant(nameRestaurant) {
-    console.log("nameRestaurant in filter",nameRestaurant);
+function filterByNameRestaurant(nameRestaurant,restaurants) {
+    console.log("nameRestaurant in filter",typeof nameRestaurant);
     console.log("restaurants",restaurants);
-    
+   const filter =  restaurants.filter(restaurant=>
+             restaurant.restaurantName.includes(nameRestaurant)
+    );
+    console.log("filter",filter)
+    return filter;
     
 }
 
@@ -149,8 +154,7 @@ function filterByNameRestaurant(nameRestaurant) {
 function hideRestaurants(main) {
         if(main){   
             main.innerHTML = "";
-        }
-        
+        }       
         //createFoodCard(food);
     }
 
@@ -163,5 +167,6 @@ export {
     printRestaurantCard,
     hideRestaurants,
     catchRestaurant,
-    createFoodCard
+    createFoodCard,
+    filterByNameRestaurant
 };
