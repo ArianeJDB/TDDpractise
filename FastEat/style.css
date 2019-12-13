@@ -68,13 +68,43 @@ select{
 }
 
 .food_card {
-    border: solid 2px black;
+    border: 1px solid black;
     display: flex;
-    height: 100px;
+    height: 150px;
+    border-radius: 10px; 
+    font-family: 'DM Serif Display', serif;
+    margin-top: 1%;
 }
+
+.food_name {
+color: #FFB400;
+margin:0px
+}
+
 .food_img{
     width: 200px;
+    border-radius: 10px; 
+    
 }
 .add_cart {
-    height: 20px;
+    height: 50px;
+    margin-left: 3%;
+}
+
+.name_container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    
+}
+
+.price_container{
+    display: flex;
+    justify-content: center;
+    margin-left: 3%;
+    align-items: center;
+}
+
+.food_price {
+    font-size: 1.5em;
 }

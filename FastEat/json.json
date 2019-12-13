@@ -6,7 +6,7 @@
     "dishes" : [
         {
             "type" : "Appetizer",
-            "name" : "Alitas",
+            "name" : "Alitas de Pollo",
             "img" : "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
             "description" : "Alitas de pollo con salsa barbacoa",
             "ingredients" : "Pollo, Salsa Barbacoa",
