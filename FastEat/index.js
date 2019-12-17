@@ -1,4 +1,5 @@
 let restaurants = [];
+let arrayCart = [];
 const main = document.querySelector('main');
 
 async function getRestaurants() {
@@ -46,7 +47,7 @@ function createRestaurantCard(restaurant) {
         li.addEventListener('click', () => {
             hideRestaurants(main);
         })
-        li.addEventListener('click', catchRestaurant)
+        li.addEventListener('click', (event) => {catchRestaurant(event, restaurant.restaurantName)})
 
         return li;
 
@@ -92,6 +93,10 @@ function createFoodCard(filterDishes) {
             li.appendChild(priceContainer);
             list.appendChild(li);
             main.appendChild(list)
+
+            addImg.addEventListener('click', (e) => {
+                addToCart(e, food.name, food.img, food.price)
+            })
         }
     }
 }
@@ -105,20 +110,18 @@ function printRestaurantCard(restaurants) {
 }
 
 
-function catchRestaurant(event) {
-
+function catchRestaurant(event, nameRestaurant) {
+        let myRestaurant;
     if (event) {
-        let nameRestaurant;
+ 
         const selectedRestaurant = event.currentTarget.innerHTML;
-        if (selectedRestaurant.search("Foster Hollywood") > 0) {
-            nameRestaurant = "Foster Hollywood";
-        } else if (selectedRestaurant.search("Ni Hao Arturo Soria") > 0) {
-            nameRestaurant = "Ni Hao Arturo Soria";
-        } else if (selectedRestaurant.search("Tagliatella") > 0) {
-            nameRestaurant = "Tagliatella"
+        if (selectedRestaurant.search(nameRestaurant) > 0) {
+            myRestaurant = nameRestaurant;
         }
+
         filterByNameRestaurant(nameRestaurant, restaurants);
     }
+   
 }
 
 function filterByNameRestaurant(nameRestaurant, restaurants) {
@@ -138,6 +141,25 @@ function hideRestaurants(main) {
     createFoodCard();
 }
 
+function addToCart(e, name, img, price) {
+    if (e) {
+        console.log('e', e)
+        const trigger = e.currentTarget.parentElement.parentElement;
+        console.log('trigger', trigger)
+        if (trigger.classList.contains('food_card')) {
+            const obj = {
+                name: name,
+                img: img,
+                price: price
+            }
+            arrayCart.push(obj)
+        }
+
+    }
+
+    console.log(arrayCart)
+    return arrayCart;
+}
 
 
 
@@ -148,5 +170,6 @@ export {
     hideRestaurants,
     catchRestaurant,
     createFoodCard,
-    filterByNameRestaurant
+    filterByNameRestaurant,
+    addToCart
 };

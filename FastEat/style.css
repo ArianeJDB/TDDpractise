@@ -100,6 +100,7 @@ margin:0px
 .add_cart {
     height: 50px;
     margin-left: 3%;
+    cursor: pointer;
 }
 
 .name_container{

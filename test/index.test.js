@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant} from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, dish} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -154,15 +154,20 @@ describe("filterByNameRestaurant", () => {
 
     })
 })
-// describe('createFoodCard', () => {
 
-//     test('creates a card for each food of a rest', () => {
-        
-//         document.body.innerHTML = foodCard;
-//         const card = document.querySelector('.food_card');
-//         const food = restaurant.dishes.appetizer
-//         console.log('-------->', food)
-//         expect(createFoodCard(food).innerHTML).toBe(card.innerHTML)
-//     })
-
+// test('add a dish to an empty array(cart)', () => {
+    
+//     const arrayCartFilled = [
+//         {img: "https://okdiario.com/img/2018/12/26/receta-de-rollito-de-primavera-vietnamita-655x368.jpg",
+//         name: "Rollito de Primavera",
+//         price: 1.5}
+//     ]
+//     const name = 'Alitas de Pollo';
+//     const price = 8;
+//     const img = 'https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg';
+//     const li = document.querySelector('li');
+//     const e = li.click()
+//     const fn = addToCart(e,name,img,price)
+    
+//     expect(fn).toBe(arrayCartFilled)
 // })
