@@ -57,14 +57,6 @@ describe('createRestaurantCard', () => {
         const card = document.querySelector('.restaurant_card');
         expect(createRestaurantCard(restaurant).innerHTML).toEqual(card.innerHTML)
     });
-    // test('creates a card for each food of a rest', () => {
-        
-    //     document.body.innerHTML = foodCard;
-    //     const card = document.querySelector('.food_card');
-    //     const food = restaurant.dishes.appetizer
-    //     console.log('-------->', food)
-    //     expect(createFoodCard(food).innerHTML).toBe(card.innerHTML)
-    // })
 
 })
 
@@ -131,7 +123,7 @@ describe('catchRestaurant', () => {
         document.body.innerHTML = mainHTML;
        
         const li = document.querySelector('li');
-        //console.log("li",li);
+
         const event = li.click();
         li.addEventListener('click', ()=>{
             catchRestaurant(event)})
@@ -140,7 +132,7 @@ describe('catchRestaurant', () => {
         
         catchRestaurant(event);
         //const restaurantSelected = event.currentTarget
-        console.log('li',li)
+ 
         expect(li.innerHTML).toEqual(selectedLi);
         
     })
@@ -161,14 +153,17 @@ describe("createBackButton", () => {
     const expected = createBackButton();
     expect(expected).toStrictEqual(result);
 })
+
+
 describe('createFoodCard', () => {
 test("should create a foodCard", () => {
-    document.body.innerHTML=fosterFoodCard;
-    const card = document.querySelector(".food_card");
-    console.log("filterDishes",filterDishes);
-    const expected = createFoodCard(fosterDishes);
-    console.log("expected",expected);
-    expect(expected).toBe(card)
+  
+    document.body.innerHTML= `<main></main>`;
+    let main = document.querySelector("main");
+
+    createFoodCard(fosterDishes,main);
+
+    expect(main.innerHTML.length).toBeGreaterThan(0)
 })
 
 })

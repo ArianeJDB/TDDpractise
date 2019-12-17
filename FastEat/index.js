@@ -51,7 +51,8 @@ function createRestaurantCard(restaurant) {
     }
 }
 
-function createFoodCard(filterDishes) {
+function createFoodCard(filterDishes, main) {
+    console.log(filterDishes)
     const back_button = createBackButton();
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
@@ -91,12 +92,16 @@ function createFoodCard(filterDishes) {
             priceContainer.appendChild(addImg);
             li.appendChild(priceContainer);
             list.appendChild(li);
-            main.appendChild(list)
+            main.appendChild(list);
+
             back_button.addEventListener("click", goBack);
 
             addImg.addEventListener('click', (e) => {
                 addToCart(e, food.name, food.img, food.price)
+
+                
             })
+            
         }
     }
 }
@@ -133,7 +138,7 @@ function filterByNameRestaurant(nameRestaurant, restaurants) {
     );
     const filterDishes = filterResraurant[0].dishes;
     console.log("filterDishes",filterDishes);
-    createFoodCard(filterDishes);
+    createFoodCard(filterDishes, main);
     return filterDishes;
 }
 
