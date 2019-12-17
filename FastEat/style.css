@@ -23,7 +23,7 @@ body{
     width: 50px;
     height: 50px;
     margin-top: 95px;
-    
+    cursor:pointer;
     
 }
 #selectorText {
@@ -45,7 +45,13 @@ select{
     text-align: center;
     width: 75%;
     background-color: #FFB400;
-    font-family: 'DM Serif Display', serif;
+    font-family: 'DM Serif Display';
+    cursor:pointer;
+}
+.restaurant_name {
+    font-family: 'DM Serif Display';
+    font-size: 1.5em;
+    margin-top: 5%;
 }
 
 .restaurant_list{
@@ -65,6 +71,7 @@ select{
 .rating_img {
     width: 15%;
     height: 20px;
+    margin-bottom: 3%;
 }
 .slogan {
     font-family: 'Faster One', cursive;
@@ -126,5 +133,17 @@ margin:0px
     display: flex;
     justify-content: center;
     align-items: center;
-
+}
+.modal {
+    font-family: 'DM Serif Display', serif;  
+}
+.btn-primary {
+background-color: #b62f0e;
+border: 1px solid #b62f0e;
+}
+.modal-footer{
+    border-top: 1px solid #b62f0e;
+}
+.modal-header{
+    border-bottom: 1px solid #b62f0e;
 }
