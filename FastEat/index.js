@@ -52,7 +52,7 @@ function createRestaurantCard(restaurant) {
 }
 
 function createFoodCard(filterDishes, main) {
-    console.log(filterDishes)
+   // console.log(filterDishes)
     const back_button = createBackButton();
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
@@ -97,7 +97,7 @@ function createFoodCard(filterDishes, main) {
             back_button.addEventListener("click", goBack);
 
             addImg.addEventListener('click', (e) => {
-                addToCart(e, food.name, food.img, food.price)
+                addToCart(arrayCart, e, food.name, food.img, food.price)
 
                 
             })
@@ -109,7 +109,7 @@ function createFoodCard(filterDishes, main) {
 
 
 function printRestaurantCard(restaurants) {
-    console.log(restaurants)
+   // console.log(restaurants)
     restaurants.forEach((restaurant) => {
         createRestaurantCard(restaurant);
 
@@ -119,9 +119,9 @@ function printRestaurantCard(restaurants) {
 
 
 function catchRestaurant(event, nameRestaurant) {
+    //console.log('NAMERESTAURANT',nameRestaurant)
         let myRestaurant;
     if (event) {
- 
         const selectedRestaurant = event.currentTarget.innerHTML;
         if (selectedRestaurant.search(nameRestaurant) > 0) {
             myRestaurant = nameRestaurant;
@@ -137,7 +137,7 @@ function filterByNameRestaurant(nameRestaurant, restaurants) {
         restaurant.restaurantName.includes(nameRestaurant)
     );
     const filterDishes = filterResraurant[0].dishes;
-    console.log("filterDishes",filterDishes);
+    //console.log("filterDishes",filterDishes);
     createFoodCard(filterDishes, main);
     return filterDishes;
 }
@@ -156,11 +156,11 @@ function createBackButton() {
     backButton.innerHTML = "Volver";
     return backButton;
 }
-function addToCart(e, name, img, price) {
+function addToCart(arrayCart, e, name, img, price) {
     if (e) {
-        console.log('e', e)
+       console.log('e', e)
         const foodLi = e.currentTarget.parentElement.parentElement;
-        console.log('foodLi', foodLi)
+       // console.log('foodLi', foodLi)
         if (foodLi.classList.contains('food_card')) {
             const obj = {
                 name: name,
@@ -168,8 +168,10 @@ function addToCart(e, name, img, price) {
                 price: price
             }
             arrayCart.push(obj)
+            console.log("arrayCart",arrayCart);
             printModalCart(arrayCart)
         }
+        return arrayCart;
     }
 
     function printModalCart(arrayCart) {
@@ -178,7 +180,7 @@ function addToCart(e, name, img, price) {
         cesta.innerHTML="";
         if(arrayCart) {
             for(let item of arrayCart) {
-                console.log("ITEM",item);
+             //   console.log("ITEM",item);
                 const div = document.createElement("div");
                 const img = document.createElement("img");
                 const name = document.createElement("p");
@@ -194,15 +196,15 @@ function addToCart(e, name, img, price) {
                 cesta.appendChild(div);
 
                 totalAmount += parseInt(price.textContent);
-                console.log("price.textContent",typeof price.textContent);
-                console.log(totalAmount);
+                // console.log("price.textContent",typeof price.textContent);
+                // console.log(totalAmount);
                 printTotalAmount(totalAmount, cesta);
             }
            
         }
     }
 
-    console.log("arrayCart",arrayCart)
+//    console.log("arrayCart",arrayCart)
     return arrayCart;
 }
 function printTotalAmount(totalAmount, cesta) {

@@ -1,5 +1,5 @@
 TN:
-SF:/home/ari/workspace/training/tdd/TDDpractise/FastEat/index.js
+SF:/home/andreskairos/Escritorio/TDDpractise/FastEat/index.js
 FN:4,getRestaurants
 FN:21,createRestaurantCard
 FN:44,(anonymous_2)
@@ -207,7 +207,7 @@ BRF:20
 BRH:7
 end_of_record
 TN:
-SF:/home/ari/workspace/training/tdd/TDDpractise/test/restaurants.fixture.js
+SF:/home/andreskairos/Escritorio/TDDpractise/test/restaurants.fixture.js
 FNF:0
 FNH:0
 DA:1,1

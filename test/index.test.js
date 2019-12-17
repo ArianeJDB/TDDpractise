@@ -118,25 +118,25 @@ describe('hideRestaurants', () => {
     })
 })
 
-describe('catchRestaurant', () => {
-    test('should catch clicked restaurant', () => {
-        document.body.innerHTML = mainHTML;
-       
-        const li = document.querySelector('li');
+// describe('catchRestaurant', () => {
+//     test('should catch clicked restaurant', () => {
+//         document.body.innerHTML = mainHTML;
+//         const li = document.querySelector('.restaurant_card');
+//         li.click();
+//       const catchRestaurant = jest.fn()
+        
 
-        const event = li.click();
-        li.addEventListener('click', ()=>{
-            catchRestaurant(event)})
         
-        
-        
-        catchRestaurant(event);
+        // li.addEventListener('click', ()=>{
+        //     catchRestaurant(event)})
+            //const nameRestaurant = 'Foster Hollywood'
+       // catchRestaurant(event);
         //const restaurantSelected = event.currentTarget
  
-        expect(li.innerHTML).toEqual(selectedLi);
+//         expect(catchRestaurant).toBeCalled();
         
-    })
-})
+//     })
+// })
 describe("filterByNameRestaurant", () => {
     test("should filter with the restaurant name",()=>{
         
@@ -168,20 +168,28 @@ test("should create a foodCard", () => {
 
 })
 
-// test('add a dish to an empty array(cart)', () => {
+test('add a dish to an empty array(cart)', () => {
+    document.body.innerHTML = fosterFoodCard;
+    const button = document.querySelector(".add_cart");
+    let e=button.click() ;
+    console.log("E",e)
     
-//     const arrayCartFilled = [
-//         {img: "https://okdiario.com/img/2018/12/26/receta-de-rollito-de-primavera-vietnamita-655x368.jpg",
-//         name: "Rollito de Primavera",
-//         price: 1.5}
-//     ]
-//     const name = 'Alitas de Pollo';
-//     const price = 8;
-//     const img = 'https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg';
-//     const li = document.querySelector('li');
-//     const e = li.click()
-//     const fn = addToCart(e,name,img,price)
-    
-//     expect(fn).toBe(arrayCartFilled)
-// })
-//
+    const name = "Alitas de Pollo";
+    const img = "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg";
+    const price = 8;
+    let arrayCart= []
+    const arrayCartFilled = [
+        {
+            img: "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
+             name: "Alitas de Pollo",
+            price: 8
+    }
+    ]
+   
+    // const li = document.querySelector('li');
+    button.click()
+    e.type=img.add_cart
+    addToCart(arrayCart, e,name,img,price)
+
+    expect(arrayCart).toBe(arrayCartFilled)
+})
