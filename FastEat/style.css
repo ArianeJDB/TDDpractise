@@ -75,8 +75,8 @@ select{
 }
 .slogan {
     font-family: 'Faster One', cursive;
-    font-size: 2em;
-    
+    font-size: 3em;
+    color: #b62f0e;
 }
 .hidden{
     display: none;
@@ -142,8 +142,25 @@ background-color: #b62f0e;
 border: 1px solid #b62f0e;
 }
 .modal-footer{
-    border-top: 1px solid #b62f0e;
+    border-top: 1px solid #FFB400;
 }
 .modal-header{
-    border-bottom: 1px solid #b62f0e;
+    border-bottom: 1px solid #FFB400;
+}
+pre{
+    font-weight: bold;
+    font-family: 'DM Serif Display', serif;  
+}
+.modal-title {
+    font-weight: bold;
+    font-family: 'DM Serif Display', serif;  
+}
+.back_button {
+    background-color: #b62f0e;
+    font-family: 'DM Serif Display', serif;  
+    border-radius: 10px; 
+    color: white;
+    width: 5%;
+    margin-top: 1%;
+    margin-left: -1%;
 }

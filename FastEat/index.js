@@ -1,6 +1,5 @@
 let restaurants = [];
 const main = document.querySelector('main');
-
 async function getRestaurants() {
     try {
         const res = await fetch('./json.json');
@@ -13,8 +12,6 @@ async function getRestaurants() {
     }
 
     printRestaurantCard(restaurants);
-    //printFoodCard(restaurants)
-
 
 }
 getRestaurants();
@@ -54,8 +51,10 @@ function createRestaurantCard(restaurant) {
 }
 
 function createFoodCard(filterDishes) {
+    const back_button = createBackButton();
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
+    list.appendChild(back_button)
     if (filterDishes && main) {
         for (let food of filterDishes) {
             const li = document.createElement('li');
@@ -92,6 +91,7 @@ function createFoodCard(filterDishes) {
             li.appendChild(priceContainer);
             list.appendChild(li);
             main.appendChild(list)
+            back_button.addEventListener("click", goBack);
         }
     }
 }
@@ -99,9 +99,12 @@ function createFoodCard(filterDishes) {
 
 
 function printRestaurantCard(restaurants) {
+    console.log(restaurants)
     restaurants.forEach((restaurant) => {
         createRestaurantCard(restaurant);
+
     })
+
 }
 
 
@@ -138,10 +141,38 @@ function hideRestaurants(main) {
     createFoodCard();
 }
 
+function createBackButton() {
+    const backButton = document.createElement('button');
+    backButton.setAttribute('class', 'back_button');
+    backButton.innerHTML = "Volver";
+    return backButton;
+}
 
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
+function goBack() {
+    
+    if (main) {
+        main.innerHTML = "";
+        main.innerHTML = `<p id="selectorText">Seleccione el tipo de comida que desea:
+        <select>
+                <option value="all">Todas</option>
+                <option value="american">Americana</option>
+                <option value="chineese">China</option>
+                <option value="italian">Italiana</option>
+              </select>
+            </p>`
+        const ul = document.createElement("ul")
+        ul.setAttribute("class", "restaurant_list");
+        main.appendChild(ul)
+        printRestaurantCard(restaurants)
+
+
+    }
+
+}
+
+// $('#myModal').on('shown.bs.modal', function () {
+//     $('#myInput').trigger('focus')
+// })
 
 
 
@@ -152,5 +183,6 @@ export {
     hideRestaurants,
     catchRestaurant,
     createFoodCard,
-    filterByNameRestaurant
+    filterByNameRestaurant,
+    createBackButton
 };

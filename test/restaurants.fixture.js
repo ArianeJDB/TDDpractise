@@ -241,3 +241,5 @@ export const fosterDishes =[{
 ]
 
 export const  nameRestaurant = "Foster Hollywood";
+
+export const backButton = `<button class="back_button">Volver</button>`;
