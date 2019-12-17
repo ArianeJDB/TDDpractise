@@ -173,7 +173,7 @@ export const mainHTML = `<main>
 
 export const selectedLi = `<img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img">`
 
-export const foodCard = `<ul class="food_list"><li class="food_card"><img src="https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg" class="food_img"><h5 class="food_name">Alitas de Pollo</h5><p class="food_description">Alitas de pollo con salsa barbacoa</p><p class="food_ingredients">Pollo, Salsa Barbacoa</p><span class="food_price">8</span><button class="add_cart"></button></li></ul>`
+export const foodCard = `<li class="food_card"><img src="https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg" class="food_img"><h5 class="food_name">Alitas de Pollo</h5><p class="food_description">Alitas de pollo con salsa barbacoa</p><p class="food_ingredients">Pollo, Salsa Barbacoa</p><span class="food_price">8</span><button class="add_cart"></button></li>`
 
 export const allDishes =  [{
     "appetizer" : {
@@ -243,3 +243,12 @@ export const fosterDishes =[{
 export const  nameRestaurant = "Foster Hollywood";
 
 export const backButton = `<button class="back_button">Volver</button>`;
+export const dish = {
+    "type": "Appetizer",
+    "name": "Alitas de Pollo",
+    "img": "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
+    "description": "Alitas de pollo con salsa barbacoa",
+    "ingredients": "Pollo, Salsa Barbacoa",
+    "price": 8
+}
+

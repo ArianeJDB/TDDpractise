@@ -87,7 +87,7 @@ select{
     display: flex;
     justify-content: space-between;
     width: 60%;
-    height: 150px;
+    height: 180px;
     border-radius: 10px; 
     font-family: 'DM Serif Display', serif;
     margin-left: 16%;
@@ -107,6 +107,7 @@ margin:0px
 .add_cart {
     height: 50px;
     margin-left: 3%;
+    cursor: pointer;
 }
 
 .name_container{
@@ -114,6 +115,7 @@ margin:0px
     flex-direction: column;
     flex-grow: 1;
     margin-left: 20px;
+    margin-top: 3%;
     
     
 }
