@@ -1,8 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, createBackButton } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes, nameRestaurant, backButton } from './restaurants.fixture.js';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, dish} from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart, createBackButton } from '../FastEat/index.js'
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, filterDishes, backButton, fosterFoodCard} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -163,7 +161,17 @@ describe("createBackButton", () => {
     const expected = createBackButton();
     expect(expected).toStrictEqual(result);
 })
-// describe('createFoodCard', () => {
+describe('createFoodCard', () => {
+test("should create a foodCard", () => {
+    document.body.innerHTML=fosterFoodCard;
+    const card = document.querySelector(".food_card");
+    console.log("filterDishes",filterDishes);
+    const expected = createFoodCard(fosterDishes);
+    console.log("expected",expected);
+    expect(expected).toBe(card)
+})
+
+})
 
 // test('add a dish to an empty array(cart)', () => {
     
@@ -181,3 +189,4 @@ describe("createBackButton", () => {
     
 //     expect(fn).toBe(arrayCartFilled)
 // })
+//

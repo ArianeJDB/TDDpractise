@@ -132,6 +132,7 @@ function filterByNameRestaurant(nameRestaurant, restaurants) {
         restaurant.restaurantName.includes(nameRestaurant)
     );
     const filterDishes = filterResraurant[0].dishes;
+    console.log("filterDishes",filterDishes);
     createFoodCard(filterDishes);
     return filterDishes;
 }
@@ -153,21 +154,57 @@ function createBackButton() {
 function addToCart(e, name, img, price) {
     if (e) {
         console.log('e', e)
-        const trigger = e.currentTarget.parentElement.parentElement;
-        console.log('trigger', trigger)
-        if (trigger.classList.contains('food_card')) {
+        const foodLi = e.currentTarget.parentElement.parentElement;
+        console.log('foodLi', foodLi)
+        if (foodLi.classList.contains('food_card')) {
             const obj = {
                 name: name,
                 img: img,
                 price: price
             }
             arrayCart.push(obj)
+            printModalCart(arrayCart)
         }
-
     }
 
-    console.log(arrayCart)
+    function printModalCart(arrayCart) {
+        const cesta = document.querySelector("#cesta");
+        let totalAmount = 0;
+        cesta.innerHTML="";
+        if(arrayCart) {
+            for(let item of arrayCart) {
+                console.log("ITEM",item);
+                const div = document.createElement("div");
+                const img = document.createElement("img");
+                const name = document.createElement("p");
+                const price = document.createElement("p");
+                div.setAttribute("class","item_modal_container");
+                img.setAttribute("class","img_modal");
+                img.src = item.img;
+                name.textContent = item.name;
+                price.textContent = item.price;
+                div.appendChild(img);
+                div.appendChild(name);
+                div.appendChild(price);
+                cesta.appendChild(div);
+
+                totalAmount += parseInt(price.textContent);
+                console.log("price.textContent",typeof price.textContent);
+                console.log(totalAmount);
+                printTotalAmount(totalAmount, cesta);
+            }
+           
+        }
+    }
+
+    console.log("arrayCart",arrayCart)
     return arrayCart;
+}
+function printTotalAmount(totalAmount, cesta) {
+const finalAmount = document.createElement("p");
+finalAmount.innerHTML = totalAmount;
+cesta.appendChild(finalAmount);
+return finalAmount;
 }
 
 function goBack() {

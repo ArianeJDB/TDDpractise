@@ -243,12 +243,12 @@ export const fosterDishes =[{
 export const  nameRestaurant = "Foster Hollywood";
 
 export const backButton = `<button class="back_button">Volver</button>`;
-export const dish = {
+export const filterDishes = [{
     "type": "Appetizer",
     "name": "Alitas de Pollo",
     "img": "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
     "description": "Alitas de pollo con salsa barbacoa",
     "ingredients": "Pollo, Salsa Barbacoa",
     "price": 8
-}
-
+}]
+export const fosterFoodCard = `<main><ul class="food_list"><button class="back_button">Volver</button><li class="food_card"><img src="https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg" class="food_img"><div class="name_container"><h2 class="food_name">Alitas de Pollo</h2><p class="food_description">Alitas de pollo con salsa barbacoa</p><p class="food_ingredients">Ingredientes: Pollo, Salsa Barbacoa</p></div><div class="price_container"><span class="food_price">8€</span><img src="./src/add.png" class="add_cart"></div></li><li class="food_card"><img src="https://static.vix.com/es/sites/default/files/styles/4x3/public/imj/elgranchef/R/Receta-de-ensalada-Cesar-1.jpg?itok=1RBs6hiJ" class="food_img"><div class="name_container"><h2 class="food_name">Ensalada César</h2><p class="food_description">Fabulosa ensalada con los mejores brotes y piezas de pollo, y nuestra salsa especial César</p><p class="food_ingredients">Ingredientes: Lechuga, Pechuga de Pollo, Salsa César</p></div><div class="price_container"><span class="food_price">13€</span><img src="./src/add.png" class="add_cart"></div></li><li class="food_card"><img src="https://www.tgifridays.es/sites/default/files/styles/dish/public/dish/fridays-classic-burgers/cheesy-bacon-cheeseburger.jpg?itok=3hEzu2J5&amp;timestamp=1520183558" class="food_img"><div class="name_container"><h2 class="food_name">Hamburguesa Bacon Cheeseburguer</h2><p class="food_description">Exquisita hamburguesa 100% vacuno con bacon y queso cheddar acompañado de patatas fritas</p><p class="food_ingredients">Ingredientes: Lechuga, Tomate, Cebolla, 200g Carne Vacuno, Queso Chedar</p></div><div class="price_container"><span class="food_price">15€</span><img src="./src/add.png" class="add_cart"></div></li><li class="food_card"><img src="https://www.thespruceeats.com/thmb/zXB9_pJ9Z40SUi75eRezebs5lTM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/gluten-free-new-york-cheesecake-1450985-hero-01-dc54f9daf38044238b495c7cefc191fa.jpg" class="food_img"><div class="name_container"><h2 class="food_name">CheeseCake</h2><p class="food_description">Nuestra famosa cheesecake , receta original americana, con mermelada de arándanos</p><p class="food_ingredients">Ingredientes: Leche, queso, azúcar, galletas, arándanos</p></div><div class="price_container"><span class="food_price">6€</span><img src="./src/add.png" class="add_cart"></div></li></ul></main>`
