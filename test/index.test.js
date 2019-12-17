@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
 import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterRestaurant,nameRestaurant} from './restaurants.fixture.js';
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -150,7 +150,7 @@ describe("filterByNameRestaurant", () => {
         
         
     const expected =filterByNameRestaurant(nameRestaurant,allRestaurants);
-    expect(expected).toEqual(fosterRestaurant)
+    expect(expected).toEqual(fosterDishes)
 
     })
 })
