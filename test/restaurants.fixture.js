@@ -155,23 +155,16 @@ export const allRestaurants = [{
     }
 ]
 
-export const mainHTML = `<main>
-<p id="selectorText">Seleccione el tipo de comida que desea:
-    <select>
-            <option value="all">Todas</option>
-            <option value="american">Americana</option>
-            <option value="chineese">China</option>
-            <option value="italian">Italiana</option>
-          </select>
-        </p>
-<ul class="restaurant_list">
+export const mainHTML = `<main><p id="selectorText">Seleccione el tipo de comida que desea:<select><option value="all">Todas</option><option value="american">Americana</option><option value="chineese">China</option><option value="italian">Italiana</option></select></p><ul class="restaurant_list"><li class="restaurant_card"><img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img"></li><li class="restaurant_card"><img src="https://t1.salir.ltmcdn.com/es/articles/2/0/5/img_comida_china_en_santander_502_600.jpg" class="restaurant_img"><h2 class="restaurant_name">Ni Hao Arturo Soria</h2><p class="restaurant_kindOfFood">China</p><img src="src/rating_stars_3.png" class="rating_img"></li><li class="restaurant_card"><img src="https://i0.wp.com/gastronomiaoviedo.com/wp-content/uploads/2017/07/La-Tagliatella-comida-italiana-2.jpg?fit=1659%2C644&amp;ssl=1" class="restaurant_img"><h2 class="restaurant_name">Tagliatella</h2><p class="restaurant_kindOfFood">Italiana</p><img src="src/rating_stars_4.png" class="rating_img"></li></ul></main>`
 
-<li class="restaurant_card"><img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img"></li>
-<li class="restaurant_card"><img src="https://t1.salir.ltmcdn.com/es/articles/2/0/5/img_comida_china_en_santander_502_600.jpg" class="restaurant_img"><h2 class="restaurant_name">Ni Hao Arturo Soria</h2><p class="restaurant_kindOfFood">China</p><img src="src/rating_stars_3.png" class="rating_img"></li>
-<li class="restaurant_card"><img src="https://i0.wp.com/gastronomiaoviedo.com/wp-content/uploads/2017/07/La-Tagliatella-comida-italiana-2.jpg?fit=1659%2C644&amp;ssl=1" class="restaurant_img"><h2 class="restaurant_name">Tagliatella</h2><p class="restaurant_kindOfFood">Italiana</p><img src="src/rating_stars_4.png" class="rating_img"></li>
-
-</ul>
-</main>`
+export const mainHTMLGoBack =`<p id="selectorText">Seleccione el tipo de comida que desea:
+        <select>
+                <option value="all">Todas</option>
+                <option value="american">Americana</option>
+                <option value="chineese">China</option>
+                <option value="italian">Italiana</option>
+              </select>
+            </p><ul class="restaurant_list"></ul>`
 
 export const selectedLi = `<img src="https://intuasturias.es/blog/admin/resources/FOSTER4/fosters-hollywood.jpg" class="restaurant_img"><h2 class="restaurant_name">Foster Hollywood</h2><p class="restaurant_kindOfFood">Americana</p><img src="src/rating_stars_5.png" class="rating_img">`
 

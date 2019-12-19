@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
 import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart, createBackButton, printModalCart, goBack } from '../FastEat/index.js'
-import { fosterCard, restaurant, allRestaurants, mainHTML, allDishes, fosterDishes,nameRestaurant, backButton, fosterFoodCard, arrayCartFilled, dishObject, modal, modalResult, goBackContext} from './restaurants.fixture.js';
+import { fosterCard, restaurant, allRestaurants, mainHTML, allDishes, fosterDishes,nameRestaurant, backButton, fosterFoodCard, arrayCartFilled, dishObject, modal, modalResult, goBackContext, mainHTMLGoBack} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -93,7 +93,34 @@ describe('printFoodCard', () => {
     }
 )})
 
-
+describe('createFoodCard', () => {
+    test("should create a foodCard", () => {
+      
+        document.body.innerHTML= `<main></main>`;
+        let main = document.querySelector("main");
+    
+        createFoodCard(fosterDishes,main);
+    
+        expect(main.innerHTML.length).toBeGreaterThan(0)
+    })
+    
+    })
+    
+    test('add a dish to an empty array(cart)', () => {
+        document.body.innerHTML = fosterFoodCard;
+        const li = document.createElement("li");
+        li.classList.add("food_card");
+        const event = {
+            currentTarget:{
+                parentElement : {
+                    parentElement:li
+                }
+            }
+        }
+        let arrayCart= []   
+        addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)
+        expect(addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)).toStrictEqual(arrayCartFilled)
+    })
 
 describe('hideRestaurants', () => {
         
@@ -118,25 +145,7 @@ describe('hideRestaurants', () => {
     })
 })
 
-// describe('catchRestaurant', () => {
-//     test('should catch clicked restaurant', () => {
-//         document.body.innerHTML = mainHTML;
-//         const li = document.querySelector('.restaurant_card');
-//         li.click();
-//       const catchRestaurant = jest.fn()
-        
 
-        
-        // li.addEventListener('click', ()=>{
-        //     catchRestaurant(event)})
-            //const nameRestaurant = 'Foster Hollywood'
-       // catchRestaurant(event);
-        //const restaurantSelected = event.currentTarget
- 
-//         expect(catchRestaurant).toBeCalled();
-        
-//     })
-// })
 describe("filterByNameRestaurant", () => {
     test("should filter with the restaurant name",()=>{
         
@@ -155,34 +164,7 @@ describe("createBackButton", () => {
 })
 
 
-describe('createFoodCard', () => {
-test("should create a foodCard", () => {
-  
-    document.body.innerHTML= `<main></main>`;
-    let main = document.querySelector("main");
 
-    createFoodCard(fosterDishes,main);
-
-    expect(main.innerHTML.length).toBeGreaterThan(0)
-})
-
-})
-
-test('add a dish to an empty array(cart)', () => {
-    document.body.innerHTML = fosterFoodCard;
-    const li = document.createElement("li");
-    li.classList.add("food_card");
-    const event = {
-        currentTarget:{
-            parentElement : {
-                parentElement:li
-            }
-        }
-    }
-    let arrayCart= []   
-    addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)
-    expect(addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)).toStrictEqual(arrayCartFilled)
-})
 
 test("printModalCart", ()=>{
     document.body.innerHTML = modal;
@@ -193,7 +175,7 @@ test("printModalCart", ()=>{
 test("goBack",() => {
     document.body.innerHTML = goBackContext;
     const main = document.querySelector('main');
-    console.log("main",main.innerHTML);
-   
-    expect(goBack(main)).toBe(mainHTML)
+    
+   goBack(main);
+    expect(main.innerHTML).toBe(mainHTMLGoBack)
 })

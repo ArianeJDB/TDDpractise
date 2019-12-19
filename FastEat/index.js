@@ -45,9 +45,9 @@ function createRestaurantCard(restaurant) {
             hideRestaurants(main);
         })
         li.addEventListener('click', (event) => {
-            catchRestaurant(event, restaurant.restaurantName)
+            filterByNameRestaurant(restaurant.restaurantName, restaurants);
         })
-
+        
         return li;
 
     }
@@ -120,19 +120,6 @@ function printRestaurantCard(restaurants) {
 }
 
 
-function catchRestaurant(event, nameRestaurant) {
-    //console.log('NAMERESTAURANT',nameRestaurant)
-    let myRestaurant;
-    if (event) {
-        const selectedRestaurant = event.currentTarget.innerHTML;
-        if (selectedRestaurant.search(nameRestaurant) > 0) {
-            myRestaurant = nameRestaurant;
-        }
-
-        filterByNameRestaurant(nameRestaurant, restaurants);
-    }
-
-}
 
 function filterByNameRestaurant(nameRestaurant, restaurants) {
     const filterResraurant = restaurants.filter(restaurant =>
@@ -258,7 +245,6 @@ export {
     createRestaurantCard,
     printRestaurantCard,
     hideRestaurants,
-    catchRestaurant,
     createFoodCard,
     filterByNameRestaurant,
     createBackButton,
