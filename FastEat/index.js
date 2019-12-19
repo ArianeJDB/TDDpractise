@@ -44,7 +44,7 @@ function createRestaurantCard(restaurant) {
         li.addEventListener('click', () => {
             hideRestaurants(main);
         })
-        li.addEventListener('click', (event) => {
+        li.addEventListener('click', () => {
             filterByNameRestaurant(restaurant.restaurantName, restaurants);
         })
         
@@ -180,33 +180,46 @@ function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
             let totalAmount = 0;
             myCart.innerHTML = "";
             if (arrayCart) {
+                
                 for (let item of arrayCart) {
                     const div = document.createElement("div");
                     const img = document.createElement("img");
                     const name = document.createElement("p");
                     const price = document.createElement("p");
+                    const subsButton = document.createElement('img');
+                    subsButton.setAttribute('class', 'subs_button');
+                    subsButton.src = './src/subsButton.png';
                     div.setAttribute("class", "item_modal_container");
                     img.setAttribute("class", "img_modal");
                     img.src = item.dishImg;
-                    name.textContent = item.dishName+'('+item.dishCount+')';
+                    name.textContent = item.dishName+' ('+item.dishCount+')';
                     price.textContent = item.dishPrice + "€";
                     div.appendChild(img);
+                    div.appendChild(subsButton);
                     div.appendChild(name);
                     div.appendChild(price);
                     myCart.appendChild(div);
 
                     totalAmount += parseFloat(item.dishPrice * item.dishCount);
+
+                    subsButton.addEventListener('click', (event) => {
+                        substractDish(event, arrayCart)}
+                        );
                 }
                 printTotalAmount(totalAmount, myCart);
+     
             }
         }
         return myCart;
     }
    
+// funtion sumTotal() {
 
+// }
 
 function printTotalAmount(totalAmount, myCart) {
     const finalAmount = document.createElement("p");
+    finalAmount.setAttribute('class', 'total')
     finalAmount.innerHTML = "Precio total: " + totalAmount + "€";
     myCart.appendChild(finalAmount);
     return finalAmount;
@@ -234,11 +247,67 @@ function goBack(main) {
 
 }
 
-// $('#myModal').on('shown.bs.modal', function () {
-//     $('#myInput').trigger('focus')
-// })
+
+function substractDish(event, arrayCart) {
+    //const modalBody = document.querySelector('.modal-body')
+    if (event) {
+        const subsButton = event.currentTarget.parentElement;
+        //console.log(subsButton)
+        const src = subsButton.firstElementChild.src;
+        
+        if (subsButton.classList.contains('item_modal_container')) {
+            if(arrayCart.filter(dish => dish.dishImg === src).length > 0){
+                //console.log('ENTRA')
+               
+                const find = arrayCart.find(dish => dish.dishImg === src)
+                if(find.dishCount > 0){
+                    console.log('1', arrayCart)
+                    find.dishCount--;
+                   printModalCart(arrayCart)
+                 
+                }else if(find.dishCount === 0){
+                    console.log('2')
+                   
+                    subsButton.innerHTML= ''
+                   
+                }
+                // else{
+                //     console.log('3')
+                //     find.dishCount--;
+                //     printModalCart(arrayCart)
+                //     subsButton.innerHTML= ''
+              
+                // }
+                
+                
+            }
+            // else{
+            //     //dish.dishCount--
+            //     subsButton.innerHTML= ''
+            // }
 
 
+            // for (let i = 1; i < arrayCart.length; i++) {
+            //     if(arrayCart[i].dishImg === src && arrayCart[i].dishCount > 1){
+            //         arrayCart[i].dishCount--
+            //         console.log(arrayCart)
+            //         printModalCart(arrayCart)
+                   
+            //     }
+            // //     else{
+            // //     console.log('HOLA')
+            // //     //arrayCart[i].dishCount--
+            // //     subsButton.innerHTML= ''
+            // // }
+                
+            // }
+      
+     
+        }
+       
+        return arrayCart;
+    }
+}
 
 export {
     getRestaurants,
@@ -250,6 +319,8 @@ export {
     createBackButton,
     addToCart,
     printModalCart,
-    goBack
+    goBack,
+    substractDish
+
 
 };

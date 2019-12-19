@@ -174,3 +174,17 @@ pre{
     justify-content: space-between;
     align-items: center;
 }
+
+.subs_button{
+    height: 30px;
+    cursor: pointer;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+.total{
+    display: flex;
+    flex-direction: row-reverse;
+}
