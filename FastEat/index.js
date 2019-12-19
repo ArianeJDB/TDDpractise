@@ -44,7 +44,9 @@ function createRestaurantCard(restaurant) {
         li.addEventListener('click', () => {
             hideRestaurants(main);
         })
-        li.addEventListener('click', (event) => {catchRestaurant(event, restaurant.restaurantName)})
+        li.addEventListener('click', (event) => {
+            catchRestaurant(event, restaurant.restaurantName)
+        })
 
         return li;
 
@@ -52,7 +54,7 @@ function createRestaurantCard(restaurant) {
 }
 
 function createFoodCard(filterDishes, main) {
-   // console.log(filterDishes)
+    // console.log(filterDishes)
     const back_button = createBackButton();
     const list = document.createElement('ul');
     list.setAttribute('class', 'food_list');
@@ -97,11 +99,11 @@ function createFoodCard(filterDishes, main) {
             back_button.addEventListener("click", goBack);
 
             addImg.addEventListener('click', (event) => {
-                addToCart(arrayCart, event , food.name, food.img, food.price)
+                addToCart(arrayCart, event, food.name, food.img, food.price)
 
-                
+
             })
-            
+
         }
     }
 }
@@ -109,7 +111,7 @@ function createFoodCard(filterDishes, main) {
 
 
 function printRestaurantCard(restaurants) {
-   // console.log(restaurants)
+    // console.log(restaurants)
     restaurants.forEach((restaurant) => {
         createRestaurantCard(restaurant);
 
@@ -120,7 +122,7 @@ function printRestaurantCard(restaurants) {
 
 function catchRestaurant(event, nameRestaurant) {
     //console.log('NAMERESTAURANT',nameRestaurant)
-        let myRestaurant;
+    let myRestaurant;
     if (event) {
         const selectedRestaurant = event.currentTarget.innerHTML;
         if (selectedRestaurant.search(nameRestaurant) > 0) {
@@ -129,7 +131,7 @@ function catchRestaurant(event, nameRestaurant) {
 
         filterByNameRestaurant(nameRestaurant, restaurants);
     }
-   
+
 }
 
 function filterByNameRestaurant(nameRestaurant, restaurants) {
@@ -156,6 +158,7 @@ function createBackButton() {
     backButton.innerHTML = "Volver";
     return backButton;
 }
+
 function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
     if (event) {
         const foodLi = event.currentTarget.parentElement.parentElement;
@@ -163,58 +166,65 @@ function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
             const dishObj = {
                 dishName: dishName,
                 dishImg: dishImg,
-                dishPrice: dishPrice
+                dishPrice: dishPrice,
+                dishCount: 1
             }
-            arrayCart.push(dishObj)
+            if(arrayCart.length === 0){
+              arrayCart.push(dishObj)
+              //console.log(arrayCart)
+            }else{
+                if(arrayCart.filter(dish => dish.dishName === dishObj.dishName).length > 0){
+                   arrayCart.find(dish => dish.dishName === dishObj.dishName ).dishCount++; 
+                }else{
+                    arrayCart.push(dishObj)
+                   
+                }
+            }
             printModalCart(arrayCart)
         }
         return arrayCart;
     }
 
     function printModalCart(arrayCart) {
-        const cesta = document.querySelector("#cesta");
+        const myCart = document.querySelector("#myCart");
 
-        if(cesta){
-        let totalAmount = 0;
-        cesta.innerHTML="";
-        if(arrayCart) {
-            for(let item of arrayCart) {
-             //   console.log("ITEM",item);
-                const div = document.createElement("div");
-                const img = document.createElement("img");
-                const name = document.createElement("p");
-                const price = document.createElement("p");
-                div.setAttribute("class","item_modal_container");
-                img.setAttribute("class","img_modal");
-                img.src = item.img;
-                name.textContent = item.name;
-                price.textContent = item.price;
-                div.appendChild(img);
-                div.appendChild(name);
-                div.appendChild(price);
-                cesta.appendChild(div);
+        if (myCart) {
+            let totalAmount = 0;
+            myCart.innerHTML = "";
+            if (arrayCart) {
+                for (let item of arrayCart) {
+                    const div = document.createElement("div");
+                    const img = document.createElement("img");
+                    const name = document.createElement("p");
+                    const price = document.createElement("p");
+                    div.setAttribute("class", "item_modal_container");
+                    img.setAttribute("class", "img_modal");
+                    img.src = item.dishImg;
+                    name.textContent = item.dishName+'('+item.dishCount+')';
+                    price.textContent = item.dishPrice + "€";
+                    div.appendChild(img);
+                    div.appendChild(name);
+                    div.appendChild(price);
+                    myCart.appendChild(div);
 
-                totalAmount += parseInt(price.textContent);
-                // console.log("price.textContent",typeof price.textContent);
-                // console.log(totalAmount);
-                printTotalAmount(totalAmount, cesta);
+                    totalAmount += parseFloat(item.dishPrice * item.dishCount);
+                }
+                printTotalAmount(totalAmount, myCart);
             }
         }
-        }
     }
-
-//    console.log("arrayCart",arrayCart)
     return arrayCart;
 }
-function printTotalAmount(totalAmount, cesta) {
-const finalAmount = document.createElement("p");
-finalAmount.innerHTML = totalAmount;
-cesta.appendChild(finalAmount);
-return finalAmount;
+
+function printTotalAmount(totalAmount, myCart) {
+    const finalAmount = document.createElement("p");
+    finalAmount.innerHTML = "Precio total: " + totalAmount + "€";
+    myCart.appendChild(finalAmount);
+    return finalAmount;
 }
 
 function goBack() {
-    
+
     if (main) {
         main.innerHTML = "";
         main.innerHTML = `<p id="selectorText">Seleccione el tipo de comida que desea:
