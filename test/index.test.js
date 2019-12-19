@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
 import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart, createBackButton } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, filterDishes, backButton, fosterFoodCard} from './restaurants.fixture.js';
+import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, filterDishes, backButton, fosterFoodCard, arrayCartFilled, dishObject} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -170,26 +170,23 @@ test("should create a foodCard", () => {
 
 test('add a dish to an empty array(cart)', () => {
     document.body.innerHTML = fosterFoodCard;
-    const button = document.querySelector(".add_cart");
-    let e=button.click() ;
-    console.log("E",e)
-    
-    const name = "Alitas de Pollo";
-    const img = "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg";
-    const price = 8;
-    let arrayCart= []
-    const arrayCartFilled = [
-        {
-            img: "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
-             name: "Alitas de Pollo",
-            price: 8
+    const li = document.createElement("li");
+    li.classList.add("food_card");
+    const event = {
+        currentTarget:{
+            parentElement : {
+                parentElement:li
+            }
+        }
     }
-    ]
+    let arrayCart= []
+  
+  
+    
+    
+    
    
-    // const li = document.querySelector('li');
-    button.click()
-    e.type=img.add_cart
-    addToCart(arrayCart, e,name,img,price)
-
-    expect(arrayCart).toBe(arrayCartFilled)
+   
+    addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)
+    expect(addToCart(arrayCart)).toStrictEqual(arrayCartFilled)
 })

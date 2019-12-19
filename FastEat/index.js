@@ -96,8 +96,8 @@ function createFoodCard(filterDishes, main) {
 
             back_button.addEventListener("click", goBack);
 
-            addImg.addEventListener('click', (e) => {
-                addToCart(arrayCart, e, food.name, food.img, food.price)
+            addImg.addEventListener('click', (event) => {
+                addToCart(arrayCart, event , food.name, food.img, food.price)
 
                 
             })
@@ -156,19 +156,16 @@ function createBackButton() {
     backButton.innerHTML = "Volver";
     return backButton;
 }
-function addToCart(arrayCart, e, name, img, price) {
-    if (e) {
-       console.log('e', e)
-        const foodLi = e.currentTarget.parentElement.parentElement;
-       // console.log('foodLi', foodLi)
+function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
+    if (event) {
+        const foodLi = event.currentTarget.parentElement.parentElement;
         if (foodLi.classList.contains('food_card')) {
-            const obj = {
-                name: name,
-                img: img,
-                price: price
+            const dishObj = {
+                dishName: dishName,
+                dishImg: dishImg,
+                dishPrice: dishPrice
             }
-            arrayCart.push(obj)
-            console.log("arrayCart",arrayCart);
+            arrayCart.push(dishObj)
             printModalCart(arrayCart)
         }
         return arrayCart;
@@ -176,6 +173,8 @@ function addToCart(arrayCart, e, name, img, price) {
 
     function printModalCart(arrayCart) {
         const cesta = document.querySelector("#cesta");
+
+        if(cesta){
         let totalAmount = 0;
         cesta.innerHTML="";
         if(arrayCart) {
@@ -200,7 +199,7 @@ function addToCart(arrayCart, e, name, img, price) {
                 // console.log(totalAmount);
                 printTotalAmount(totalAmount, cesta);
             }
-           
+        }
         }
     }
 
