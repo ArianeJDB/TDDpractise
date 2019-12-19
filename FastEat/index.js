@@ -96,7 +96,7 @@ function createFoodCard(filterDishes, main) {
             list.appendChild(li);
             main.appendChild(list);
 
-            back_button.addEventListener("click", goBack);
+            back_button.addEventListener("click", ()=>goBack(main));
 
             addImg.addEventListener('click', (event) => {
                 addToCart(arrayCart, event, food.name, food.img, food.price)
@@ -184,6 +184,7 @@ function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
         }
         return arrayCart;
     }
+}
 
     function printModalCart(arrayCart) {
         const myCart = document.querySelector("#myCart");
@@ -212,9 +213,10 @@ function addToCart(arrayCart, event , dishName, dishImg, dishPrice) {
                 printTotalAmount(totalAmount, myCart);
             }
         }
+        return myCart;
     }
-    return arrayCart;
-}
+   
+
 
 function printTotalAmount(totalAmount, myCart) {
     const finalAmount = document.createElement("p");
@@ -223,7 +225,7 @@ function printTotalAmount(totalAmount, myCart) {
     return finalAmount;
 }
 
-function goBack() {
+function goBack(main) {
 
     if (main) {
         main.innerHTML = "";
@@ -260,5 +262,8 @@ export {
     createFoodCard,
     filterByNameRestaurant,
     createBackButton,
-    addToCart
+    addToCart,
+    printModalCart,
+    goBack
+
 };

@@ -1,6 +1,6 @@
 import * as restaurants from '../FastEat/json.json';
-import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart, createBackButton } from '../FastEat/index.js'
-import { restaurantCard, fosterCard, restaurant, allRestaurants, mainHTML, selectedLi, foodCard, allDishes, fosterDishes,nameRestaurant, filterDishes, backButton, fosterFoodCard, arrayCartFilled, dishObject} from './restaurants.fixture.js';
+import { getRestaurants, createRestaurantCard, printRestaurantCard, hideRestaurants, catchRestaurant, createFoodCard,filterByNameRestaurant, addToCart, createBackButton, printModalCart, goBack } from '../FastEat/index.js'
+import { fosterCard, restaurant, allRestaurants, mainHTML, allDishes, fosterDishes,nameRestaurant, backButton, fosterFoodCard, arrayCartFilled, dishObject, modal, modalResult, goBackContext} from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
     let mockGetRestaurants = getRestaurants;
@@ -179,14 +179,21 @@ test('add a dish to an empty array(cart)', () => {
             }
         }
     }
-    let arrayCart= []
-  
-  
-    
-    
-    
-   
-   
+    let arrayCart= []   
     addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)
-    expect(addToCart(arrayCart)).toStrictEqual(arrayCartFilled)
+    expect(addToCart(arrayCart,event,dishObject.dishName,dishObject.dishImg,dishObject.dishPrice)).toStrictEqual(arrayCartFilled)
+})
+
+test("printModalCart", ()=>{
+    document.body.innerHTML = modal;
+    const myCart = document.querySelector("#myCart");
+    expect(printModalCart(arrayCartFilled).innerHTML).toBe(modalResult)
+})
+
+test("goBack",() => {
+    document.body.innerHTML = goBackContext;
+    const main = document.querySelector('main');
+    console.log("main",main.innerHTML);
+   
+    expect(goBack(main)).toBe(mainHTML)
 })
