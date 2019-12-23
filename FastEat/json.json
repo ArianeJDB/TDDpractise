@@ -114,4 +114,124 @@
             "price": 6
         }
     ]
-}]
+},
+{
+    "restaurantName": "Gino's",
+    "restaurantImg": "https://media-cdn.tripadvisor.com/media/photo-s/12/e8/f6/44/ginos-ristorante.jpg",
+    "kindOfFood": "Italiana",
+    "rating": "src/rating_stars_5.png",
+    "dishes": [
+        {
+        "type":  "appetizer",
+            "name": "Carpaccio di Manzo",
+            "img": "https://www.ginos.es/sites/default/files/styles/optimize/public/carpaccio1366x852.jpg?itok=eqryuDXk",
+            "description": "Lonchas de buey con queso grana padano y rúcula con aceite de oliva y vinagreta de limón con tomate semiseco.",
+            "ingredients": "Carne de buey cruda, queso, rúcula, aceite de oliva, vinagre, limón, tomates semisecos",
+            "price": 12
+        },
+        {
+        "type":  "first",
+            "name": "Cannelloni di Carne",
+            "img": "https://www.ginos.es/sites/default/files/styles/optimize/public/canelone-ginos1366x852.jpg?itok=ohGPrB07",
+            "description": "Rellenos de ternera, cerdo, verduras y orégano, con salsa pomodoro, tomate fresco, bechamel con mozzarella y queso parmesano",
+            "ingredients": "Pasta al huevo, cerdo, verduras, orégano, tomates, leche, harina, queso parmesano",
+            "price": 13
+        },
+        {
+        "type": "seconds",
+            "name": "Pizza carbonara",
+            "img": "https://www.ginos.es/sites/default/files/styles/optimize/public/ginos-pizza-carbonara-1366x852.jpg?itok=2SyAhsHU",
+            "description": "Pizza típica con salsa carbonara",
+            "ingredients": "Mozzarella, cebolla roja Juliana, bacon, orégano seco y crème fraîche",
+            "price": 12
+        },
+        {
+        "type": "dessert",
+            "name": "Torta di Formaggi",
+            "img": "https://www.ginos.es/sites/default/files/styles/optimize/public/1366x852pxqueso.jpg?itok=G7iLsnJJ",
+            "description": "Cremosa tarta de queso acompañada de frutos rojos.",
+            "ingredients": "Queso, leche, azúcar, frutos rojos",
+            "price": 5
+        }
+    ]
+},
+{
+    "restaurantName": "Palacio Pekín",
+    "restaurantImg": "https://welcometoibiza.com/wp-content/uploads/2019/10/Pekin-Express-Ibiza-restaurante-chino-201908.jpg",
+    "kindOfFood": "China",
+    "rating": "src/rating_stars_4.png",
+    "dishes": [{
+            "type": "appetizer",
+            "name": "Edamame",
+            "img": "https://s.yimg.com/uu/api/res/1.2/iEPh7drmERUBCw78VsjV7Q--~B/aD01MzI7dz04MDA7c209MTthcHBpZD15dGFjaHlvbg--/http://media.zenfs.com/es-ES/homerun/hola.com/5f1f4d5f0a144e58baffef804e132bba",
+            "description": "Edamames hervidos con salsa agridulce",
+            "ingredients": "Edamame, salsa agridulce",
+            "price": 2
+        },
+        {
+            "type": "first",
+            "name": "Sopa de Wan-tun",
+            "img": "https://canalcocina.es/medias/_cache/zoom-1ef7892903d768c26ebd9d8e8f0c1fa9-920-518.jpg",
+            "description": "Esta sopa de wonton vegana esta preparado con un relleno de tofu y setas shiitake",
+            "ingredients": "Tofu, setas, caldo vegetal, soja",
+            "price": 5
+        },
+        {
+        "type":"seconds",
+            "name": "Gambas con verduras",
+            "img": "https://www.lekue.com/wp/es/wp-content/uploads/sites/3/2018/04/gambas-con-verduras-825x502.jpg",
+            "description": "Salteado de verduras don gambas y un toque picante",
+            "ingredients": "Verduras varias, gambas, soja, guindilla",
+            "price": 6
+        },
+        {
+        "type":"dessert",
+            "name": "Coco helado",
+            "img": "https://www.helados.nestle.es/cliente/DisplayImage.ashx?entity=7&id=236",
+            "description": "Helado de leche de coco en su corteza",
+            "ingredients": "Leche de coco, azúcar, canela.",
+            "price": 3
+        
+    }]
+},
+{
+    "restaurantName": "Tommy Mels",
+    "restaurantImg": "https://img.grouponcdn.com/deal/NoJvmJufpfdS4tt4PejGhVprciY/No-824x495/v1/c700x420.jpg",
+    "kindOfFood": "Americana",
+    "rating": "src/rating_stars_5.png",
+    "dishes": [{
+            "type": "Appetizer",
+            "name": "Quesadilla",
+            "img": "https://pbs.twimg.com/media/Ck76f2DWsAAqz4Q.jpg",
+            "description": "Deliciosas y tiernas tortillas de trigo rellenas de jamón york y quesos fundidos, acompañadas de pico de gallo, salsa taco y guacamole.",
+            "ingredients": "Jamón, Queso, Tortillas de trigo",
+            "price": 8
+        },
+        {
+            "type": "Primero",
+            "name": "Ensalada César",
+            "img": "https://1.bp.blogspot.com/-zz29-Rx1DKM/VxU2ImvLOvI/AAAAAAAAN1w/Htkob28iyuQPyzLTyze8qlxL-SvMsrDugCLcB/s1600/Captura%2Bde%2Bpantalla%2Bcompleta%2B18042016%2B212951.jpg",
+            "description": "La clásica americana con lechuga romana, croutons, bacon, lascas de queso grana padano y nuestra exclusiva receta de salsa César original.",
+            "ingredients": "Lechuga, Pechuga de Pollo, Bacon",
+            "price": 13
+        },
+        {
+            "type": "Segundo",
+            "name": "Little Havana Sanwitch",
+            "img": "https://img.grouponcdn.com/deal/svMLJxtnEpXen83UCJNYegHHJPg/sv-700x419/v1/c700x420.jpg",
+            "description": "El clásico bocadillo cubano en pan brioche, con mucho queso Cheddar, jamón york y jamón braseado, unos pepinillos en rodajas y mayonesa a la mostaza. Enorme sabrosura.",
+            "ingredients": "Lechuga, Tomate, Jamon York, Queso Chedar",
+            "price": 15
+        },
+        {
+            "type": "Postre",
+            "name": "Brownie con nata y helado",
+            "img": "https://www.tommymels.com/imagenes/66ccb4.png",
+            "description": "La receta exclusiva de Tommy Mel´s. Este bizcocho está preparado de manera artesanal con nueces de California y puro chocolate. Se sirve con nata o helado de vainilla y salsa de chocolate caliente. Te lo pides o te lo pides.",
+            "ingredients": "Chocolate, Nata, Harina, Huevos",
+            "price": 6
+        }
+    ]
+}
+
+]

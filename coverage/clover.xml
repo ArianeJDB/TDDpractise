@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1577118377760" clover="3.2.0">
-  <project timestamp="1577118377760" name="All files">
+<coverage generated="1577120268758" clover="3.2.0">
+  <project timestamp="1577120268759" name="All files">
     <metrics statements="204" coveredstatements="188" conditionals="34" coveredconditionals="19" methods="27" coveredmethods="21" elements="265" coveredelements="228" complexity="0" loc="204" ncloc="204" packages="2" files="2" classes="2"/>
     <package name="FastEat">
       <metrics statements="176" coveredstatements="160" conditionals="34" coveredconditionals="19" methods="27" coveredmethods="21"/>
