@@ -119,21 +119,24 @@ function printRestaurantCard(restaurants) {
 
 }
 
-function filterRestaurant(restaurants) {
-    let value = document.querySelector("select").value;
+function selectRestaurant(event, restaurants) {
+    let value = event.currentTarget.value
     const restaurantList = document.querySelector(".restaurant_list")
     const restaurantFilter = restaurants.filter(restaurant => restaurant.kindOfFood.includes(value));
     restaurantList.innerHTML = "";
     if(value ==="Todas"){
         printRestaurantCard(restaurants)
     }
+    console.log('-------->',restaurantFilter)
     printRestaurantCard(restaurantFilter)
     return restaurantFilter;
 }
 
 let selectFilter = document.querySelector('select');
 
-selectFilter.addEventListener('click', () => {filterRestaurant(restaurants)})
+if(selectFilter){
+    selectFilter.addEventListener('click', (event) => {selectRestaurant(event, restaurants)})
+}
 
 function filterByNameRestaurant(nameRestaurant, restaurants) {
     const filterResraurant = restaurants.filter(restaurant =>
@@ -292,6 +295,7 @@ export {
     printModalCart,
     goBack,
     substractDish,
-    deleteDish
+    deleteDish,
+    selectRestaurant
 
 };

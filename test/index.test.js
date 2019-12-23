@@ -12,7 +12,8 @@ import {
     printModalCart,
     goBack,
     substractDish,
-    deleteDish
+    deleteDish, 
+    selectRestaurant
 } from '../FastEat/index.js'
 import {
     fosterCard,
@@ -36,7 +37,7 @@ import {
     arrayCart,
     expectedModal,
     modalContext,
-    modalContextResult
+    modalContextResult, selectRestaurantFixture
 } from './restaurants.fixture.js';
 
 describe('When called succesfully', () => {
@@ -233,7 +234,6 @@ describe("substractDish,deleteDish", () => {
         
         document.body.innerHTML = modalContext;
         document.querySelector('.item_modal_container');
-        const printModalCart = jest.fn();
         const arrayCart=[{
             dishImg: "https://www.comedera.com/wp-content/uploads/2013/07/alitas-de-pollo-al-horno.jpg",
             dishName: "Alitas de Pollo",
@@ -249,5 +249,25 @@ describe("substractDish,deleteDish", () => {
         };
         substractDish(event, arrayCart)
         expect(selectedDish).toEqual(modalContextResult);
+    })
+})
+
+describe('selectRestaurant', () => {
+    test('should print the selected restaurant', () => {
+        document.body.innerHTML = mainHTML
+        const input = ['Americana'];
+
+        //const output = selectRestaurantFixture;
+
+        const event = {
+            currentTarget: {
+                value: input
+            }
+        }
+
+        // selectRestaurant(restaurants);
+       const expected =  selectRestaurant(event, allRestaurants)
+     
+        expect(expected).toStrictEqual(selectRestaurantFixture)
     })
 })
